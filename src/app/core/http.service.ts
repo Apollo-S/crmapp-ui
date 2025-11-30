@@ -48,7 +48,7 @@ export class HttpService {
       body,
       withCredentials
     }).pipe(
-      map(response => response?.data || response?.results),
+      map(response => response?.data || response?.results || response),
       catchError(error => error && new Error(error.error))
     );
   }

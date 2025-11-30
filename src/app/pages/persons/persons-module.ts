@@ -4,16 +4,21 @@ import {SharedModule} from '../../shared/shared.module';
 import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import {PersonsRoutingModule} from './persons-routing-module';
+import {Persons} from './persons';
+import {TableModule} from 'primeng/table';
 
 
 @NgModule({
-    declarations: [],
+    declarations: [
+        Persons
+    ],
     imports: [
         CommonModule,
         SharedModule,
         RouterModule,
         ReactiveFormsModule,
-        PersonsRoutingModule
+        PersonsRoutingModule,
+        TableModule
     ]
 })
 export class PersonsModule {
