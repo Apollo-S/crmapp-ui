@@ -42,9 +42,9 @@ export class Login implements OnInit {
     }
 
     login() {
-      //   this.authService.login(this.loginForm.value).subscribe(response => {
-            this.router.navigateByUrl('/persons');
-        // });
+        this.authService.login(this.loginForm.value).subscribe(response => {
+            this.router.navigateByUrl('user/all');
+        });
     }
 
 }

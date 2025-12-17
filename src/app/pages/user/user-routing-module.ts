@@ -4,7 +4,7 @@ import {AllUsers} from './all/all-users';
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'all',
         component: AllUsers
     }
 ];
