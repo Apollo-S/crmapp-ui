@@ -4,7 +4,7 @@ import {AppRoutingModule} from './app-routing-module';
 import {App} from './app';
 import {AuthModule} from './pages/auth/auth-module';
 import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptors} from '@angular/common/http';
-import {ErrorInterceptor} from './core/interceptors/error.interceptor';
+import {errorInterceptor} from './core/interceptors/error-interceptor';
 import {authInterceptor} from './core/interceptors/auth-interceptor';
 import {SharedModule} from './shared/shared.module';
 
@@ -21,13 +21,8 @@ import {SharedModule} from './shared/shared.module';
     providers: [
         provideBrowserGlobalErrorListeners(),
         provideHttpClient(
-            withInterceptors([authInterceptor])
-        ),
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: ErrorInterceptor,
-            multi: true
-        },
+            withInterceptors([authInterceptor, errorInterceptor])
+        )
     ],
     bootstrap: [App]
 })
